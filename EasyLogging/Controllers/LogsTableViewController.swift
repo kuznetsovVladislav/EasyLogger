@@ -18,6 +18,15 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
         CoreDataManager.fetchEvents(events: &self.events)
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(LogsTableViewController.updateLogs(notification:)),
+                                               name: NSNotification.Name(rawValue: UpdateLogsNotification),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(LogsTableViewController.clearLogs(notification:)),
+                                               name: NSNotification.Name(rawValue: ClearLogsNotification),
+                                               object: nil)
     }
     
     //MARK - <NSTableViewDataSource>
@@ -51,8 +60,14 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
             cellIdentifier = "TaskDescriptionID"
         } else if tableColumn == tableView.tableColumns[4] {
             let event = self.events[row]
+            let timeSpent = Date.readableDate(date:  event.value(forKey: "startTime") as! Date)
+            text = timeSpent
+            cellIdentifier = "StartTimeID"
+        }
+        else if tableColumn == tableView.tableColumns[5] {
+            let event = self.events[row]
             let timeSpent = event.value(forKey: "timeSpent")
-            text = timeSpent as! String
+            timeSpent != nil ? (text = timeSpent as! String) : (text = "Undefined")
             cellIdentifier = "TimeSpentID"
         }
         
@@ -63,21 +78,23 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
         return nil
     }
     
-//    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-//        
-//        if tableColumn!.title == "firstColumnTitle" //if you have more columns
-//        {
-//            let event = events[row] as NSManagedObject
-//            let string = event.value(forKey: "projectName")
-//            return string
-//        }
-//        else //second column
-//        {
-//            let event = events[row] as NSManagedObject
-//            let string = event.value(forKey: "projectName")
-//            return string
-//        }
-//        
-//    }
+    //MARK: - <NotificationCenter>
+    
+    func updateLogs(notification: Notification) {
+        CoreDataManager.fetchEvents(events: &self.events)
+        self.tableView.reloadData()
+    }
+    
+    func clearLogs(notification: Notification)  {
+        CoreDataManager.clear(allEvents: &self.events)
+        self.tableView.reloadData()
+    }
+    
+    //MARK - Deallocation 
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
 }

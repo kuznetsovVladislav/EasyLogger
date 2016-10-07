@@ -49,8 +49,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        let coreDataShared = CoreDataStack.shared
-        coreDataShared.saveContext()
+        CoreDataStack.shared.saveContext()
         if popover.isShown {
             closePopover(sender: nil)
         }

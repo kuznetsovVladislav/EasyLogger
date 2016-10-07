@@ -16,27 +16,37 @@ extension Date {
         
         let date1 = firstDate
         let date2 = secondDate
-        
-        let monthFlags = NSCalendar.Unit.month
-        let dayFlags = NSCalendar.Unit.day
-        let hourFlags = NSCalendar.Unit.hour
-        let minuteFlags = NSCalendar.Unit.minute
+
         let secFlags = NSCalendar.Unit.second
-        let monthComponents = calendar.components(monthFlags, from: date1, to: date2, options: []).month!
-        let dayComponents = calendar.components(dayFlags, from: date1, to: date2, options: []).day!
-        let hourComponents = calendar.components(hourFlags, from: date1, to: date2, options: []).hour!
-        let minuteComponents = calendar.components(minuteFlags, from: date1, to: date2, options: []).minute!
         let secComponents = calendar.components(secFlags, from: date1, to: date2, options: []).second!
 
+        let secondsSpent = secComponents  % 60
+        let minutesSpent = Int(secComponents  / 60)
+        let hoursSpent = Int(minutesSpent / 60)
         
-        let timeSpent =
-        String(describing: monthComponents) + "M " +
-        String(describing: dayComponents) + "d " +
-        String(describing: hourComponents) + "h " +
-        String(describing: minuteComponents) + "m " +
-        String(describing: secComponents) + "sec "
+        var timeSpent = ""
+        
+        if hoursSpent > 0 {
+            timeSpent =
+                String(describing: hoursSpent) + "h " +
+                String(describing: minutesSpent) + "m " +
+                String(describing: secondsSpent) + "s "
+        } else if minutesSpent > 0 {
+            timeSpent =
+                String(describing: minutesSpent) + "m " +
+                String(describing: secondsSpent) + "s "
+        } else {
+            timeSpent = String(describing: secondsSpent) + "s "
+        }
         
         return timeSpent
+    }
+    
+    static func readableDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .short
+        return formatter.string(from: date)
     }
 }
 

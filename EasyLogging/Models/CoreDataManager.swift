@@ -16,9 +16,9 @@ class CoreDataManager: NSObject {
         let entity = NSEntityDescription.entity(forEntityName: "Event", in: managedContext)
         let event = NSManagedObject(entity: entity!, insertInto: managedContext)
         
-        event.setValue(projectName, forKey: "projectName")
-        event.setValue(taskName, forKey: "taskName")
-        event.setValue(taskDescription, forKey: "taskDescription")
+        !projectName.isEmpty ? event.setValue(projectName, forKey: "projectName") : event.setValue("Undefined", forKey: "projectName")
+        !taskName.isEmpty ? event.setValue(taskName, forKey: "taskName") : event.setValue("Undefined", forKey: "taskName")
+        !taskDescription.isEmpty ? event.setValue(taskDescription, forKey: "taskDescription") : event.setValue("Undefined", forKey: "taskDescription")
         event.setValue(startTime, forKey: "startTime")
         
         do {

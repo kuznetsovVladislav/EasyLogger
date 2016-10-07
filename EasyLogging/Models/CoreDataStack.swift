@@ -38,7 +38,6 @@ class CoreDataStack: NSObject {
             fatalError("Error migrating store: \(error)")
         }
     }
-    // Saving before Terminating
     
     func saveContext () {
         let context = self.managedObjectContext

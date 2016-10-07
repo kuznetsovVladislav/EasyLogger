@@ -8,6 +8,9 @@
 
 import Cocoa
 
+let UpdateLogsNotification = "UpdateLogsNotification"
+let ClearLogsNotification = "ClearLogsNotification"
+
 class ActionViewController: NSViewController {
     
     @IBOutlet weak var projectNameTextField: NSTextField!
@@ -40,6 +43,7 @@ class ActionViewController: NSViewController {
     @IBAction func loggingAction(_ sender: AnyObject) {
         self.isLogging ? self.stopLoggingAction(sender) : self.startLoggingAction(sender)
         self.isLogging ? (self.isLogging = false) : (self.isLogging = true)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: UpdateLogsNotification), object: nil)
     }
     
     func startLoggingAction(_ sender: AnyObject) {
@@ -78,12 +82,16 @@ class ActionViewController: NSViewController {
         }
         print("---------------------------------\n")
         #endif
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: UpdateLogsNotification), object: nil)
     }
     
     @IBAction func clearCoreDataAction(_ sender: AnyObject) {
         CoreDataManager.clear(allEvents: &self.events)
         self.isLogging = false
         self.loggingButton.title = "Start Logging"
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ClearLogsNotification), object: nil)
+
     }
 
 }
