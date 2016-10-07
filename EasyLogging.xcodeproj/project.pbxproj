@@ -15,8 +15,8 @@
 		86C4F3FB1DA6AECF00486D00 /* ActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C4F3F91DA6AECF00486D00 /* ActionViewController.xib */; };
 		86C4F3FE1DA6AFA800486D00 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F3FD1DA6AFA800486D00 /* CoreDataStack.swift */; };
 		86C4F4031DA6B0AB00486D00 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F4021DA6B0AB00486D00 /* CoreDataManager.swift */; };
-		86DBFBEB1DA6E19600A6B634 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DBFBE91DA6E19600A6B634 /* DetailedViewController.swift */; };
-		86DBFBEC1DA6E19600A6B634 /* DetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86DBFBEA1DA6E19600A6B634 /* DetailedViewController.xib */; };
+		86C8E39A1DA7208800FEF7BE /* LogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C8E3981DA7208800FEF7BE /* LogsTableViewController.swift */; };
+		86C8E39B1DA7208800FEF7BE /* LogsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C8E3991DA7208800FEF7BE /* LogsTableViewController.xib */; };
 		86DBFBEF1DA6F94000A6B634 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DBFBEE1DA6F94000A6B634 /* Date.swift */; };
 		86ECC48F1DA701BA00424F7C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 86ECC48D1DA701BA00424F7C /* DataModel.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -31,8 +31,8 @@
 		86C4F3F91DA6AECF00486D00 /* ActionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionViewController.xib; sourceTree = "<group>"; };
 		86C4F3FD1DA6AFA800486D00 /* CoreDataStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		86C4F4021DA6B0AB00486D00 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		86DBFBE91DA6E19600A6B634 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
-		86DBFBEA1DA6E19600A6B634 /* DetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailedViewController.xib; sourceTree = "<group>"; };
+		86C8E3981DA7208800FEF7BE /* LogsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsTableViewController.swift; sourceTree = "<group>"; };
+		86C8E3991DA7208800FEF7BE /* LogsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LogsTableViewController.xib; sourceTree = "<group>"; };
 		86DBFBEE1DA6F94000A6B634 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		86ECC48E1DA701BA00424F7C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		86ECC4901DA7029100424F7C /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
@@ -92,8 +92,8 @@
 			children = (
 				86C4F3F81DA6AECF00486D00 /* ActionViewController.swift */,
 				86C4F3F91DA6AECF00486D00 /* ActionViewController.xib */,
-				86DBFBE91DA6E19600A6B634 /* DetailedViewController.swift */,
-				86DBFBEA1DA6E19600A6B634 /* DetailedViewController.xib */,
+				86C8E3981DA7208800FEF7BE /* LogsTableViewController.swift */,
+				86C8E3991DA7208800FEF7BE /* LogsTableViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -178,8 +178,8 @@
 			files = (
 				86C4F3F41DA6ADAF00486D00 /* Assets.xcassets in Resources */,
 				86C4F3F61DA6ADAF00486D00 /* Info.plist in Resources */,
-				86DBFBEC1DA6E19600A6B634 /* DetailedViewController.xib in Resources */,
 				86C4F3FB1DA6AECF00486D00 /* ActionViewController.xib in Resources */,
+				86C8E39B1DA7208800FEF7BE /* LogsTableViewController.xib in Resources */,
 				86C4F3F51DA6ADAF00486D00 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,9 +191,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86C8E39A1DA7208800FEF7BE /* LogsTableViewController.swift in Sources */,
 				86C4F3FE1DA6AFA800486D00 /* CoreDataStack.swift in Sources */,
 				86DBFBEF1DA6F94000A6B634 /* Date.swift in Sources */,
-				86DBFBEB1DA6E19600A6B634 /* DetailedViewController.swift in Sources */,
 				86ECC48F1DA701BA00424F7C /* DataModel.xcdatamodeld in Sources */,
 				86C4F3F31DA6ADAF00486D00 /* AppDelegate.swift in Sources */,
 				86C4F4031DA6B0AB00486D00 /* CoreDataManager.swift in Sources */,
