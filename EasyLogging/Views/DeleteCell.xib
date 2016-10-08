@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <tableCellView misplaced="YES" id="yHf-9E-E2b" customClass="DeleteCell" customModule="EasyLogging" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1mN-lx-1zn">
+                    <rect key="frame" x="0.0" y="4" width="100" height="17"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="8Hw-jv-Log">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="U9J-aV-zPJ">
+                    <rect key="frame" x="-2" y="-3" width="104" height="29"/>
+                    <buttonCell key="cell" type="bevel" title="Delete" bezelStyle="regularSquare" imagePosition="left" alignment="center" borderStyle="border" inset="2" id="obj-m0-C9j">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="deleteAction:" target="yHf-9E-E2b" id="geF-6H-EXS"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="U9J-aV-zPJ" firstAttribute="leading" secondItem="yHf-9E-E2b" secondAttribute="leading" id="AIq-rV-2hY"/>
+                <constraint firstAttribute="trailing" secondItem="U9J-aV-zPJ" secondAttribute="trailing" id="KhW-TU-S7s"/>
+                <constraint firstItem="U9J-aV-zPJ" firstAttribute="top" secondItem="yHf-9E-E2b" secondAttribute="top" id="Wwk-Zv-dIT"/>
+                <constraint firstAttribute="bottom" secondItem="U9J-aV-zPJ" secondAttribute="bottom" id="jYc-tz-1F5"/>
+            </constraints>
+            <connections>
+                <outlet property="textField" destination="1mN-lx-1zn" id="WgN-gO-13a"/>
+            </connections>
+            <point key="canvasLocation" x="-239" y="36"/>
+        </tableCellView>
+    </objects>
+</document>

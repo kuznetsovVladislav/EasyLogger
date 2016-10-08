@@ -61,6 +61,19 @@ class CoreDataManager: NSObject {
         }
     }
     
+    class func deleteEvent(FromEvents events: inout [NSManagedObject], atIndex index: Int) {
+        
+        let managedContext = CoreDataStack.shared.managedObjectContext        
+        managedContext.delete(events[index])
+        
+        do {
+            try managedContext.save()
+            events.remove(at: index)
+        } catch let error as NSError {
+            print("Couldn't save to CoreData. Error: \(error);\(error.userInfo)")
+        }
+    }
+    
     class func clear(allEvents events: inout [NSManagedObject]) {
      
         let managedContext = CoreDataStack.shared.managedObjectContext

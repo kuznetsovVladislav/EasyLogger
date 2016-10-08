@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		866D4A1A1DA90545006BD35D /* DeleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 866D4A191DA90545006BD35D /* DeleteCell.swift */; };
+		866D4A1C1DA90557006BD35D /* DeleteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 866D4A1B1DA90557006BD35D /* DeleteCell.xib */; };
 		86C4F3F31DA6ADAF00486D00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F3EE1DA6ADAF00486D00 /* AppDelegate.swift */; };
 		86C4F3F41DA6ADAF00486D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C4F3EF1DA6ADAF00486D00 /* Assets.xcassets */; };
 		86C4F3F51DA6ADAF00486D00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C4F3F01DA6ADAF00486D00 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		866D4A191DA90545006BD35D /* DeleteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteCell.swift; sourceTree = "<group>"; };
+		866D4A1B1DA90557006BD35D /* DeleteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeleteCell.xib; sourceTree = "<group>"; };
 		8694BB731DA6999900D748C3 /* EasyLogging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasyLogging.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86C4F3EE1DA6ADAF00486D00 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		86C4F3EF1DA6ADAF00486D00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		866D4A181DA90535006BD35D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				866D4A191DA90545006BD35D /* DeleteCell.swift */,
+				866D4A1B1DA90557006BD35D /* DeleteCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		8694BB6A1DA6999800D748C3 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +81,7 @@
 		8694BB751DA6999900D748C3 /* EasyLogging */ = {
 			isa = PBXGroup;
 			children = (
+				866D4A181DA90535006BD35D /* Views */,
 				86C4F3F71DA6AECF00486D00 /* Controllers */,
 				86C4F3FC1DA6AED900486D00 /* Models */,
 				86DBFBED1DA6F92100A6B634 /* Extensions */,
@@ -176,6 +190,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				866D4A1C1DA90557006BD35D /* DeleteCell.xib in Resources */,
 				86C4F3F41DA6ADAF00486D00 /* Assets.xcassets in Resources */,
 				86C4F3F61DA6ADAF00486D00 /* Info.plist in Resources */,
 				86C4F3FB1DA6AECF00486D00 /* ActionViewController.xib in Resources */,
@@ -197,6 +212,7 @@
 				86ECC48F1DA701BA00424F7C /* DataModel.xcdatamodeld in Sources */,
 				86C4F3F31DA6ADAF00486D00 /* AppDelegate.swift in Sources */,
 				86C4F4031DA6B0AB00486D00 /* CoreDataManager.swift in Sources */,
+				866D4A1A1DA90545006BD35D /* DeleteCell.swift in Sources */,
 				86C4F3FA1DA6AECF00486D00 /* ActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

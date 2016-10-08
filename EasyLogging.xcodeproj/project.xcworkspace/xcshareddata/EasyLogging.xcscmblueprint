@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "4C0E6F41A3EB3B861C699EC8641017F8C507AD7B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "4C0E6F41A3EB3B861C699EC8641017F8C507AD7B" : 9223372036854775807,
+    "119E22F3C3C5B56A9B9F073070B48478754D0FE4" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9A0F447B-C2B9-42CC-9C3D-09C07A211E3E",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "4C0E6F41A3EB3B861C699EC8641017F8C507AD7B" : "EasyLogging\/",
+    "119E22F3C3C5B56A9B9F073070B48478754D0FE4" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "EasyLogging",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "EasyLogging.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kuznetsovVladislav\/Objective-C-Ciklum-courses.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "119E22F3C3C5B56A9B9F073070B48478754D0FE4"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kuznetsovVladislav\/EasyLogger.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4C0E6F41A3EB3B861C699EC8641017F8C507AD7B"
+    }
+  ]
+}

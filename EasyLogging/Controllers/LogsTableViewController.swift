@@ -18,18 +18,27 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
         CoreDataManager.fetchEvents(events: &self.events)
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.addObservers()
         
+        self.tableView.register(NSNib.init(nibNamed: "DeleteCell", bundle: nil), forIdentifier: "DeleteID")
+    }
+    
+    //MARK: - Private
+    
+    private func addObservers()  {
+        self.createObserver(withSelector: #selector(LogsTableViewController.updateLogs(notification:)), notificationName: UpdateLogsNotification)
+        self.createObserver(withSelector: #selector(LogsTableViewController.clearLogs(notification:)), notificationName: ClearLogsNotification)
+        self.createObserver(withSelector: #selector(LogsTableViewController.removeCell(atIndex:)), notificationName: DeleteButtonDidTapNotification)
+    }
+    
+    private func createObserver(withSelector selector: Selector, notificationName name: String) {
         NotificationCenter.default.addObserver(self,
-                                               selector: #selector(LogsTableViewController.updateLogs(notification:)),
-                                               name: NSNotification.Name(rawValue: UpdateLogsNotification),
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(LogsTableViewController.clearLogs(notification:)),
-                                               name: NSNotification.Name(rawValue: ClearLogsNotification),
+                                               selector: selector,
+                                               name: NSNotification.Name(rawValue: name),
                                                object: nil)
     }
     
-    //MARK - <NSTableViewDataSource>
+    //MARK: - <NSTableViewDataSource>
 
     func numberOfRows(in tableView: NSTableView) -> Int {
         return self.events.count
@@ -70,6 +79,14 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
             timeSpent != nil ? (text = timeSpent as! String) : (text = "Undefined")
             cellIdentifier = "TimeSpentID"
         }
+        else if tableColumn == tableView.tableColumns[6] {
+            cellIdentifier = "DeleteID"
+            if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? DeleteCell {
+                cell.textField?.stringValue = text
+                return cell
+            }
+        }
+        
         
         if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
@@ -87,6 +104,11 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
     
     func clearLogs(notification: Notification)  {
         CoreDataManager.clear(allEvents: &self.events)
+        self.tableView.reloadData()
+    }
+    
+    func removeCell(atIndex index: Int)  {
+        CoreDataManager.deleteEvent(FromEvents: &self.events, atIndex: index)
         self.tableView.reloadData()
     }
     
