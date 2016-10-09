@@ -8,16 +8,21 @@
 
 import Cocoa
 
-let DeleteButtonDidTapNotification = "DeleteButtonDidTapNotification"
+protocol DeleteCellDelegate: class {
+    func cellDidTapDeleteAction(sender: DeleteCell, atIndex index: Int)
+}
 
 class DeleteCell: NSTableCellView {
 
+    weak var delegate: DeleteCellDelegate?
+    var selectedIndex: Int?
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
     
     @IBAction func deleteAction(_ sender: AnyObject) {
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: DeleteButtonDidTapNotification), object: nil)
+        self.delegate?.cellDidTapDeleteAction(sender: self, atIndex: selectedIndex!)
     }
     
 }

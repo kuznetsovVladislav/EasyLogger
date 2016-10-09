@@ -30,7 +30,7 @@ class CoreDataManager: NSObject {
     }
     
     class func addStopTime(toEvents events: inout [NSManagedObject], withStopTime stopTime: Date) {
-        
+
         let managedContext = CoreDataStack.shared.managedObjectContext
         
         let lastEvent = events.last! as NSManagedObject
@@ -89,8 +89,4 @@ class CoreDataManager: NSObject {
         }
         events.removeAll()
     }
-
-    
-    
-
 }

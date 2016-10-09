@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate {
+class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableViewDelegate, DeleteCellDelegate {
 
     @IBOutlet weak var tableView: NSTableView!
     var events = [NSManagedObject]()
@@ -28,7 +28,6 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
     private func addObservers()  {
         self.createObserver(withSelector: #selector(LogsTableViewController.updateLogs(notification:)), notificationName: UpdateLogsNotification)
         self.createObserver(withSelector: #selector(LogsTableViewController.clearLogs(notification:)), notificationName: ClearLogsNotification)
-        self.createObserver(withSelector: #selector(LogsTableViewController.removeCell(atIndex:)), notificationName: DeleteButtonDidTapNotification)
     }
     
     private func createObserver(withSelector selector: Selector, notificationName name: String) {
@@ -82,17 +81,26 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
         else if tableColumn == tableView.tableColumns[6] {
             cellIdentifier = "DeleteID"
             if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? DeleteCell {
+                cell.delegate = self
+                cell.selectedIndex = row
                 cell.textField?.stringValue = text
                 return cell
             }
         }
-        
         
         if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
             cell.textField?.stringValue = text
             return cell
         }
         return nil
+    }
+    
+    //MARK: - <DeleteCellDelegate>
+
+    func cellDidTapDeleteAction(sender: DeleteCell, atIndex index: Int) {
+        print("Delete row at index: \(index)")
+        CoreDataManager.deleteEvent(FromEvents: &self.events, atIndex: index)
+        self.tableView.removeRows(at: [index], withAnimation: .effectFade)
     }
     
     //MARK: - <NotificationCenter>
@@ -107,12 +115,7 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
         self.tableView.reloadData()
     }
     
-    func removeCell(atIndex index: Int)  {
-        CoreDataManager.deleteEvent(FromEvents: &self.events, atIndex: index)
-        self.tableView.reloadData()
-    }
-    
-    //MARK - Deallocation 
+    //MARK: - Deallocation
     
     deinit {
         NotificationCenter.default.removeObserver(self)
