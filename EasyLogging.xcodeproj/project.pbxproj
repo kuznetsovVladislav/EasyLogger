@@ -12,7 +12,6 @@
 		86C4F3F31DA6ADAF00486D00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F3EE1DA6ADAF00486D00 /* AppDelegate.swift */; };
 		86C4F3F41DA6ADAF00486D00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 86C4F3EF1DA6ADAF00486D00 /* Assets.xcassets */; };
 		86C4F3F51DA6ADAF00486D00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 86C4F3F01DA6ADAF00486D00 /* Main.storyboard */; };
-		86C4F3F61DA6ADAF00486D00 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 86C4F3F21DA6ADAF00486D00 /* Info.plist */; };
 		86C4F3FA1DA6AECF00486D00 /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F3F81DA6AECF00486D00 /* ActionViewController.swift */; };
 		86C4F3FB1DA6AECF00486D00 /* ActionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 86C4F3F91DA6AECF00486D00 /* ActionViewController.xib */; };
 		86C4F3FE1DA6AFA800486D00 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4F3FD1DA6AFA800486D00 /* CoreDataStack.swift */; };
@@ -192,7 +191,6 @@
 			files = (
 				866D4A1C1DA90557006BD35D /* DeleteCell.xib in Resources */,
 				86C4F3F41DA6ADAF00486D00 /* Assets.xcassets in Resources */,
-				86C4F3F61DA6ADAF00486D00 /* Info.plist in Resources */,
 				86C4F3FB1DA6AECF00486D00 /* ActionViewController.xib in Resources */,
 				86C8E39B1DA7208800FEF7BE /* LogsTableViewController.xib in Resources */,
 				86C4F3F51DA6ADAF00486D00 /* Main.storyboard in Resources */,
