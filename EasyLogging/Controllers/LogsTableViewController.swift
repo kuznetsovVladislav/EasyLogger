@@ -19,7 +19,7 @@ class LogsTableViewController: NSViewController, NSTableViewDataSource, NSTableV
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.addObservers()
-        
+        self.preferredContentSize = NSSize(width: 812, height: 503.0)
         self.tableView.register(NSNib.init(nibNamed: "DeleteCell", bundle: nil), forIdentifier: "DeleteID")
     }
     

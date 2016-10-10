@@ -14,11 +14,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let popover = NSPopover()
     let statusItem = NSStatusBar.system().statusItem(withLength: NSVariableStatusItemLength)
     let menu = NSMenu()
+    var detector: AnyObject?
+
 
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setUpStatusBar()
+        
     }
+
     
     func setUpStatusBar() {
         if let button = statusItem.button {
@@ -27,6 +31,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         self.popover.contentViewController = ActionViewController(nibName: "ActionViewController", bundle: nil)
         self.popover.behavior = .transient
+        detector = NSEvent.addGlobalMonitorForEvents(matching: [NSEventMask.leftMouseDown, NSEventMask.rightMouseDown], handler: { [weak self] event in
+            self?.closePopover(sender: self)
+            }) as AnyObject?
     }
     
     func showPopover(sender: AnyObject?) {

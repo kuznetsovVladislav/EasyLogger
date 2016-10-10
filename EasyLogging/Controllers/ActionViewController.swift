@@ -84,6 +84,8 @@ class ActionViewController: NSViewController {
         #endif
         
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: UpdateLogsNotification), object: nil)
+        let lvc = LogsTableViewController()
+        self.presentViewControllerAsModalWindow(lvc)
     }
     
     @IBAction func clearCoreDataAction(_ sender: AnyObject) {
